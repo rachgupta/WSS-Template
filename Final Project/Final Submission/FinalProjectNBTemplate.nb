@@ -10,40 +10,286 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2508,         74]
-NotebookOptionsPosition[      1520,         44]
-NotebookOutlinePosition[      2344,         72]
-CellTagsIndexPosition[      2301,         69]
+NotebookDataLength[     15434,        351]
+NotebookOptionsPosition[     12211,        290]
+NotebookOutlinePosition[     13023,        317]
+CellTagsIndexPosition[     12980,        314]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["< Project Title >", "Title",
+Cell["\<\
+Classifying Fiction and Non-Fiction Works Using Machine Learning\
+\>", "Title",
  CellChangeTimes->{{3.770055572438499*^9, 3.7700555729498453`*^9}, {
-  3.770055604008165*^9, 
-  3.7700556066618843`*^9}},ExpressionUUID->"49ab34ee-bfd5-49f5-beef-\
+  3.770055604008165*^9, 3.7700556066618843`*^9}, {3.771881059814651*^9, 
+  3.7718810778980913`*^9}},ExpressionUUID->"49ab34ee-bfd5-49f5-beef-\
 400d3cc456dd"],
 
-Cell["< First and Last name>", "Text",
+Cell["Rachna Gupta", "Text",
  CellChangeTimes->{{3.549624168509506*^9, 3.549624171985794*^9}, {
   3.549624508772977*^9, 3.549624510775043*^9}, {3.5498187159613867`*^9, 
   3.5498187170087957`*^9}, {3.549819049020514*^9, 3.5498190533440437`*^9}, {
-  3.77005561844785*^9, 
-  3.7700556489651537`*^9}},ExpressionUUID->"94536f76-3fd2-4bf6-b228-\
+  3.77005561844785*^9, 3.7700556489651537`*^9}, {3.771881079460478*^9, 
+  3.7718810827120113`*^9}},ExpressionUUID->"94536f76-3fd2-4bf6-b228-\
 fa93ec9acae9"],
 
-Cell["< Mentor\[CloseCurlyQuote]s First and Last name>", "Text",
+Cell["Mentor: Sylvia Haas", "Text",
  CellChangeTimes->{{3.549624515773694*^9, 3.5496245246892014`*^9}, {
   3.5498187208956137`*^9, 3.5498187221413403`*^9}, {3.5498190558319674`*^9, 
-  3.54981906151682*^9}, {3.770055624686027*^9, 
-  3.770055659820487*^9}},ExpressionUUID->"b70c649b-a958-4202-9f22-\
-238ea1f9c7d4"]
+  3.54981906151682*^9}, {3.770055624686027*^9, 3.770055659820487*^9}, {
+  3.7718810857456484`*^9, 
+  3.7718810903476405`*^9}},ExpressionUUID->"b70c649b-a958-4202-9f22-\
+238ea1f9c7d4"],
+
+Cell[CellGroupData[{
+
+Cell["Background Information", "Section",
+ CellChangeTimes->{{3.771927022190368*^9, 
+  3.77192702801278*^9}},ExpressionUUID->"1b33f079-7467-4ad4-8149-\
+5d3ffb32090c"],
+
+Cell[CellGroupData[{
+
+Cell["Abstract", "Subsection",
+ CellChangeTimes->{{3.7719270315001965`*^9, 3.7719270366934214`*^9}, 
+   3.7719271633973837`*^9},ExpressionUUID->"55d86eb0-cacd-4778-98cc-\
+caec65d25de2"],
+
+Cell["\<\
+The objective of this project is to create a program that can determine \
+whether an unknown text is a work of fiction or non-fiction using machine \
+learning. I utilized various datasets of speeches, ebooks, poems, scientific \
+papers, and more texts from Project Gutenberg and the Wolfram Example Data to \
+train and test a Markov Chain machine learning model. I deployed a microsite \
+with my final product that returns a probability of fictionality based on \
+input from the user with 96% accuracy.\
+\>", "Text",
+ CellChangeTimes->{{3.771927142203122*^9, 
+  3.771927176377823*^9}},ExpressionUUID->"c84798d8-0ecd-42b5-be4c-\
+7ca3007353e4"],
+
+Cell[BoxData[
+ StyleBox["Introduction", "Subsection"]], "Input",
+ CellChangeTimes->{{3.771927178565647*^9, 
+  3.771927206945552*^9}},ExpressionUUID->"7f73ecec-8e5d-4a65-ad5e-\
+c1c107617d80"],
+
+Cell[TextData[StyleBox["The majority of literature and texts can be \
+classified into fiction and non-fiction. Fiction is defined as the class of \
+literature comprising works of imaginative narration, especially in prose \
+form, while non-fiction is defined as all content discussing real events and \
+facts. Although most of the time the class of of a work is fairly obvious due \
+to fantastical elements and writing style, there are many cases where the \
+class is unclear because of the various types of fiction and non-fiction and \
+the complexities of the  boundaries between them. The goal of this project \
+was to create a classifier that can accurately understand those boundaries in \
+order to classify an unknown work. ", "Text"]], "Text",
+ CellChangeTimes->{
+  3.7719272156613255`*^9, {3.7719272546744003`*^9, 
+   3.771927257145934*^9}},ExpressionUUID->"e295d89f-74fb-4f24-9a4e-\
+fd92ed27c1eb"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Data Processing and Analysis", "Section",
+ CellChangeTimes->{{3.7719264367253327`*^9, 3.771926438155326*^9}, {
+  3.7719264995233693`*^9, 3.7719265689577312`*^9}, {3.7719266111324587`*^9, 
+  3.7719266203144913`*^9}, {3.771927006164254*^9, 
+  3.7719270114370065`*^9}},ExpressionUUID->"51585a3d-a81a-42bf-a6a1-\
+cc0bfc4966b0"],
+
+Cell[CellGroupData[{
+
+Cell["Searching for Data", "Subsection",
+ CellChangeTimes->{{3.771928860947622*^9, 
+  3.771928881803503*^9}},ExpressionUUID->"f56526b3-ed21-4af2-b57b-\
+91a6e3687783"],
+
+Cell["\<\
+Initially, I searched online for databases of full texts for various \
+literature. However, due to copyright issues, not many datasets were \
+available. I attempted to use the Wolfram OpenLibrary resources, however, for \
+each book there were up to 500 options and only a few had full texts due to \
+copyright. Ultimately, I decided it would take too long for me to isolate all \
+the full texts for the various types of fiction and non-fiction that I \
+wanted. I found out that the ExampleData function in WL had 50 full texts of \
+fiction and non-fiction, so I decided to use that data. I found a zipfile of \
+over 3000 various texts on the Project Gutenberg website and used that data \
+as well. \
+\>", "Text",
+ CellChangeTimes->{{3.7719289019657464`*^9, 3.7719289543840923`*^9}, {
+  3.771929040439133*^9, 3.7719292277449594`*^9}, {3.7719292916363325`*^9, 
+  3.7719293098068867`*^9}, {3.771929351521408*^9, 
+  3.7719293634856625`*^9}},ExpressionUUID->"2305810b-75a8-446b-8eb9-\
+84ed3d7b68b8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Obtaining and Processing the Project Gutenberg Data", "Subsection",
+ CellChangeTimes->{{3.7719273424562063`*^9, 3.7719273452380323`*^9}, {
+  3.7719285409839287`*^9, 3.771928544512307*^9}, {3.7719298095559235`*^9, 
+  3.7719298156710033`*^9}},ExpressionUUID->"cbd4c6ef-9482-404d-8a4f-\
+3aecc0bb8d56"],
+
+Cell["\<\
+I download a Project Gutenberg dataset of over 3000 files to a new folder in \
+my computer using this link: \
+https://drive.google.com/file/d/17WBziFbt9nhAW5iV-yHPHmCfquBPrjJO/view. For \
+this notebook, I have uploaded the 300 files used in this project into the \
+folder Final Submission. Then, I created my notebook in that file so I could \
+find the pathways for all the .txt files without doing it manually. \
+\>", "Text",
+ CellChangeTimes->{{3.771926761387679*^9, 3.771926777820461*^9}, {
+   3.771926820671712*^9, 3.7719268463681*^9}, {3.7719268763767323`*^9, 
+   3.7719269102254767`*^9}, 3.7719274201127872`*^9, {3.7719275690527225`*^9, 
+   3.7719275926938353`*^9}, {3.771927659148549*^9, 3.771927691286173*^9}, {
+   3.7719277481480985`*^9, 3.77192775537008*^9}, {3.771928341812168*^9, 
+   3.7719283828261724`*^9}, {3.771929366502448*^9, 
+   3.7719293903379498`*^9}},ExpressionUUID->"a1945163-b629-4ace-bee6-\
+984544904f7f"],
+
+Cell["\<\
+Make a list of all the .txt files in the notebook\[CloseCurlyQuote]s \
+directory using NotebookDirectory[] and FileNames\
+\>", "CodeText",
+ CellChangeTimes->{{3.7719279042749805`*^9, 3.771927910235158*^9}, {
+  3.7719280490488944`*^9, 3.7719280695289574`*^9}, {3.771928318041301*^9, 
+  3.7719283343722663`*^9}},ExpressionUUID->"aef9c1b2-894c-4a52-bbd4-\
+483b71a0548d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"filePathways", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*.txt\>\"", ",", 
+     RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{
+  3.7719279240143003`*^9, {3.771928290911722*^9, 3.7719282971054506`*^9}, {
+   3.7719285092876196`*^9, 
+   3.7719285139010687`*^9}},ExpressionUUID->"70243ecb-fbcb-4e6f-a60b-\
+71537e86497a"],
+
+Cell["\<\
+Then, I isolated the names of the files from the pathways and stored them \
+under a new variable filenames for later use. The format of the file names is \
+\[OpenCurlyDoubleQuote]Author_Text Title\[CloseCurlyDoubleQuote].\
+\>", "Text",
+ CellChangeTimes->{{3.77192856697051*^9, 3.771928616665983*^9}, {
+  3.7719287438459063`*^9, 
+  3.771928758901681*^9}},ExpressionUUID->"ba7fbac6-cdf2-4b36-878f-\
+87a862da24ee"],
+
+Cell["\<\
+Make a list of the names of the files from the file pathways.\
+\>", "CodeText",
+ CellChangeTimes->{{3.7719286645416355`*^9, 3.7719286857253428`*^9}, {
+  3.7719287234255037`*^9, 3.7719287649983096`*^9}, {3.771929594759939*^9, 
+  3.771929595032552*^9}},ExpressionUUID->"b1e4fb45-c65e-49da-8373-\
+1bb846b48ff1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"filenames", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"FileNameTake", "[", 
+      RowBox[{"filePathways", "[", 
+       RowBox[{"[", "n", "]"}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", 
+       RowBox[{"Length", "[", "filePathways", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.7714245296806154`*^9, 3.771424536418497*^9}, 
+   3.7714252550855*^9, {3.771425596998833*^9, 3.7714256209182377`*^9}, {
+   3.771425726102322*^9, 3.771425751646963*^9}, {3.771429898670854*^9, 
+   3.7714298994246254`*^9}, {3.7714341939815006`*^9, 
+   3.7714341953913774`*^9}, {3.7714374597253246`*^9, 
+   3.7714374644585657`*^9}, {3.7716739012184024`*^9, 3.7716739066381783`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"d58abc98-82ae-4da4-9dc9-f80dac1e7337"],
+
+Cell["\<\
+In order to avoid overloading the system, I decided at this point to just use \
+300 of the 3000 texts, which are the same texts that are included in this \
+folder, so, next, I imported the 300 selected texts into the notebook.\
+\>", "Text",
+ CellChangeTimes->{{3.771928798725794*^9, 3.7719287992053924`*^9}, {
+  3.7719294020389524`*^9, 
+  3.77192956481824*^9}},ExpressionUUID->"443bfacf-78c2-4c5e-b63f-\
+629f8560af7f"],
+
+Cell["\<\
+Take 300 files and import them into the notebook using their pathways\
+\>", "CodeText",
+ CellChangeTimes->{{3.7719295851987305`*^9, 
+  3.771929613906798*^9}},ExpressionUUID->"7c33abb0-6c16-4cc7-bc34-\
+99586a9702b7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"filePathways", "=", 
+   RowBox[{"Take", "[", 
+    RowBox[{"filePathways", ",", "300"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7715831168965425`*^9, 3.771583126472376*^9}, {
+  3.7715886580267925`*^9, 3.7715886604325943`*^9}, {3.7716062852363615`*^9, 
+  3.77160628672641*^9}, {3.7716688917812824`*^9, 3.771668919087438*^9}, {
+  3.7716691503778543`*^9, 3.7716691536114726`*^9}, {3.771673891058034*^9, 
+  3.771673891323592*^9}, {3.7716852489817266`*^9, 3.7716852494601536`*^9}, {
+  3.7717603469859657`*^9, 3.7717603471421776`*^9}, {3.771761330039098*^9, 
+  3.771761355736355*^9}, {3.7719287780794506`*^9, 
+  3.771928778267541*^9}},ExpressionUUID->"e0dfd166-f8e2-4f59-b0b6-\
+598121f4fa5d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DataGutAll", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Import", "[", "#", "]"}], "&"}], "/@", "filePathways"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.7714156808202224`*^9, 3.771415696795116*^9}, {
+   3.771423643584237*^9, 3.7714236456774592`*^9}, {3.771424111699504*^9, 
+   3.7714241271017857`*^9}, {3.7714241702587423`*^9, 
+   3.7714241757014008`*^9}, {3.7714245192249756`*^9, 3.771424543652171*^9}, {
+   3.77142576042938*^9, 3.771425763896944*^9}, {3.7714298888381643`*^9, 
+   3.7714298889787874`*^9}, {3.771434202311284*^9, 3.7714342025646906`*^9}, 
+   3.771437483656146*^9, {3.7715103698139935`*^9, 3.771510392517969*^9}, {
+   3.771583080155306*^9, 3.7715831083360505`*^9}, {3.7716689244142838`*^9, 
+   3.7716689337164335`*^9}, {3.771673911082163*^9, 3.7716739165077376`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"84e54e6d-a6d9-43f0-ba2c-78c3a160afcd"],
+
+Cell["\<\
+The data was not pre-tagged with Fiction and Non-Fiction classes, so I had to \
+manually research each of the texts and classify them. Then, I made a \
+function that returned True if it was Non-Fiction and False if it was Fiction.\
+\>", "Text",
+ CellChangeTimes->{{3.771929827675207*^9, 
+  3.7719299161348915`*^9}},ExpressionUUID->"b2c1d0d6-cade-48f0-bccb-\
+059f228bd6b4"],
+
+Cell["\<\
+The Non-Fic function returns True and False for Non-Fiction and Fiction \
+respectively\
+\>", "CodeText",
+ CellChangeTimes->{{3.7719299429918733`*^9, 
+  3.7719299738995185`*^9}},ExpressionUUID->"01bcb4f2-5e5f-4161-ba69-\
+8c9f9b784106"]
+}, Open  ]],
+
+Cell["Obtaining the ExampleData texts", "Subsection",
+ CellChangeTimes->{{3.771928632584489*^9, 
+  3.771928645934713*^9}},ExpressionUUID->"f7ed1b79-3397-49cc-90b7-\
+37e86874efff"]
+}, Open  ]]
 }, Open  ]]
 },
-WindowSize->{720, 855},
-WindowMargins->{{360, Automatic}, {Automatic, 0}},
+WindowSize->{1520, 781},
+WindowMargins->{{-8, Automatic}, {Automatic, 0}},
 DockedCells->{
   Cell[
    TextData[{
@@ -56,8 +302,7 @@ DockedCells->{
       RGBColor[0.97, 0.83, 0.35], FontFamily -> "Source Sans Pro", FontSize -> 
       40]}], CellFrameMargins -> 10, Background -> 
    RGBColor[0.12, 0.14, 0.15]]},
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -72,9 +317,41 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 213, 4, 98, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd"],
-Cell[796, 28, 364, 6, 35, "Text",ExpressionUUID->"94536f76-3fd2-4bf6-b228-fa93ec9acae9"],
-Cell[1163, 36, 341, 5, 35, "Text",ExpressionUUID->"b70c649b-a958-4202-9f22-238ea1f9c7d4"]
+Cell[580, 22, 316, 6, 96, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd"],
+Cell[899, 30, 402, 6, 34, "Text",ExpressionUUID->"94536f76-3fd2-4bf6-b228-fa93ec9acae9"],
+Cell[1304, 38, 365, 6, 34, "Text",ExpressionUUID->"b70c649b-a958-4202-9f22-238ea1f9c7d4"],
+Cell[CellGroupData[{
+Cell[1694, 48, 166, 3, 67, "Section",ExpressionUUID->"1b33f079-7467-4ad4-8149-5d3ffb32090c"],
+Cell[CellGroupData[{
+Cell[1885, 55, 185, 3, 53, "Subsection",ExpressionUUID->"55d86eb0-cacd-4778-98cc-caec65d25de2"],
+Cell[2073, 60, 652, 11, 78, "Text",ExpressionUUID->"c84798d8-0ecd-42b5-be4c-7ca3007353e4"],
+Cell[2728, 73, 190, 4, 38, "Input",ExpressionUUID->"7f73ecec-8e5d-4a65-ad5e-c1c107617d80"],
+Cell[2921, 79, 906, 13, 78, "Text",ExpressionUUID->"e295d89f-74fb-4f24-9a4e-fd92ed27c1eb"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3876, 98, 329, 5, 67, "Section",ExpressionUUID->"51585a3d-a81a-42bf-a6a1-cc0bfc4966b0"],
+Cell[CellGroupData[{
+Cell[4230, 107, 166, 3, 53, "Subsection",ExpressionUUID->"f56526b3-ed21-4af2-b57b-91a6e3687783"],
+Cell[4399, 112, 1004, 16, 78, "Text",ExpressionUUID->"2305810b-75a8-446b-8eb9-84ed3d7b68b8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5440, 133, 304, 4, 53, "Subsection",ExpressionUUID->"cbd4c6ef-9482-404d-8a4f-3aecc0bb8d56"],
+Cell[5747, 139, 940, 15, 56, "Text",ExpressionUUID->"a1945163-b629-4ace-bee6-984544904f7f"],
+Cell[6690, 156, 377, 7, 37, "CodeText",ExpressionUUID->"aef9c1b2-894c-4a52-bbd4-483b71a0548d"],
+Cell[7070, 165, 404, 10, 28, "Input",ExpressionUUID->"70243ecb-fbcb-4e6f-a60b-71537e86497a"],
+Cell[7477, 177, 421, 8, 34, "Text",ExpressionUUID->"ba7fbac6-cdf2-4b36-878f-87a862da24ee"],
+Cell[7901, 187, 318, 6, 37, "CodeText",ExpressionUUID->"b1e4fb45-c65e-49da-8373-1bb846b48ff1"],
+Cell[8222, 195, 839, 18, 28, "Input",ExpressionUUID->"d58abc98-82ae-4da4-9dc9-f80dac1e7337"],
+Cell[9064, 215, 428, 8, 34, "Text",ExpressionUUID->"443bfacf-78c2-4c5e-b63f-629f8560af7f"],
+Cell[9495, 225, 225, 5, 37, "CodeText",ExpressionUUID->"7c33abb0-6c16-4cc7-bc34-99586a9702b7"],
+Cell[9723, 232, 729, 13, 28, "Input",ExpressionUUID->"e0dfd166-f8e2-4f59-b0b6-598121f4fa5d"],
+Cell[10455, 247, 902, 16, 28, "Input",ExpressionUUID->"84e54e6d-a6d9-43f0-ba2c-78c3a160afcd"],
+Cell[11360, 265, 382, 7, 34, "Text",ExpressionUUID->"b2c1d0d6-cade-48f0-bccb-059f228bd6b4"],
+Cell[11745, 274, 244, 6, 37, "CodeText",ExpressionUUID->"01bcb4f2-5e5f-4161-ba69-8c9f9b784106"]
+}, Open  ]],
+Cell[12004, 283, 179, 3, 53, "Subsection",ExpressionUUID->"f7ed1b79-3397-49cc-90b7-37e86874efff"]
+}, Open  ]]
 }, Open  ]]
 }
 ]
