@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     15434,        351]
-NotebookOptionsPosition[     12211,        290]
-NotebookOutlinePosition[     13023,        317]
-CellTagsIndexPosition[     12980,        314]
+NotebookDataLength[     58607,       1316]
+NotebookOptionsPosition[     50124,       1182]
+NotebookOutlinePosition[     50936,       1209]
+CellTagsIndexPosition[     50893,       1206]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -69,12 +69,14 @@ input from the user with 96% accuracy.\
 \>", "Text",
  CellChangeTimes->{{3.771927142203122*^9, 
   3.771927176377823*^9}},ExpressionUUID->"c84798d8-0ecd-42b5-be4c-\
-7ca3007353e4"],
+7ca3007353e4"]
+}, Closed]],
 
-Cell[BoxData[
- StyleBox["Introduction", "Subsection"]], "Input",
- CellChangeTimes->{{3.771927178565647*^9, 
-  3.771927206945552*^9}},ExpressionUUID->"7f73ecec-8e5d-4a65-ad5e-\
+Cell[CellGroupData[{
+
+Cell["Introduction", "Subsection",
+ CellChangeTimes->{{3.771927178565647*^9, 3.771927206945552*^9}, 
+   3.771930927349292*^9},ExpressionUUID->"7f73ecec-8e5d-4a65-ad5e-\
 c1c107617d80"],
 
 Cell[TextData[StyleBox["The majority of literature and texts can be \
@@ -91,8 +93,8 @@ order to classify an unknown work. ", "Text"]], "Text",
   3.7719272156613255`*^9, {3.7719272546744003`*^9, 
    3.771927257145934*^9}},ExpressionUUID->"e295d89f-74fb-4f24-9a4e-\
 fd92ed27c1eb"]
-}, Open  ]]
-}, Open  ]],
+}, Closed]]
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -116,16 +118,16 @@ literature. However, due to copyright issues, not many datasets were \
 available. I attempted to use the Wolfram OpenLibrary resources, however, for \
 each book there were up to 500 options and only a few had full texts due to \
 copyright. Ultimately, I decided it would take too long for me to isolate all \
-the full texts for the various types of fiction and non-fiction that I \
-wanted. I found out that the ExampleData function in WL had 50 full texts of \
-fiction and non-fiction, so I decided to use that data. I found a zipfile of \
-over 3000 various texts on the Project Gutenberg website and used that data \
-as well. \
+the full texts for the various works that I wanted. I found out that the \
+ExampleData function in WL had 50 full texts of fiction and non-fiction, so I \
+decided to use that data. I found a zip file of over 3000 various texts on \
+the Project Gutenberg website and used that data as well. \
 \>", "Text",
  CellChangeTimes->{{3.7719289019657464`*^9, 3.7719289543840923`*^9}, {
-  3.771929040439133*^9, 3.7719292277449594`*^9}, {3.7719292916363325`*^9, 
-  3.7719293098068867`*^9}, {3.771929351521408*^9, 
-  3.7719293634856625`*^9}},ExpressionUUID->"2305810b-75a8-446b-8eb9-\
+   3.771929040439133*^9, 3.7719292277449594`*^9}, {3.7719292916363325`*^9, 
+   3.7719293098068867`*^9}, {3.771929351521408*^9, 3.7719293634856625`*^9}, {
+   3.7719308586516657`*^9, 3.7719308614407787`*^9}, 
+   3.7719347117598915`*^9},ExpressionUUID->"2305810b-75a8-446b-8eb9-\
 84ed3d7b68b8"]
 }, Open  ]],
 
@@ -138,8 +140,8 @@ Cell["Obtaining and Processing the Project Gutenberg Data", "Subsection",
 3aecc0bb8d56"],
 
 Cell["\<\
-I download a Project Gutenberg dataset of over 3000 files to a new folder in \
-my computer using this link: \
+First, I downloaded a Project Gutenberg set of data of over 3000 files to a \
+new folder in my computer using this link: \
 https://drive.google.com/file/d/17WBziFbt9nhAW5iV-yHPHmCfquBPrjJO/view. For \
 this notebook, I have uploaded the 300 files used in this project into the \
 folder Final Submission. Then, I created my notebook in that file so I could \
@@ -150,8 +152,9 @@ find the pathways for all the .txt files without doing it manually. \
    3.7719269102254767`*^9}, 3.7719274201127872`*^9, {3.7719275690527225`*^9, 
    3.7719275926938353`*^9}, {3.771927659148549*^9, 3.771927691286173*^9}, {
    3.7719277481480985`*^9, 3.77192775537008*^9}, {3.771928341812168*^9, 
-   3.7719283828261724`*^9}, {3.771929366502448*^9, 
-   3.7719293903379498`*^9}},ExpressionUUID->"a1945163-b629-4ace-bee6-\
+   3.7719283828261724`*^9}, {3.771929366502448*^9, 3.7719293903379498`*^9}, {
+   3.771930410883853*^9, 3.7719304181742077`*^9}, {3.7719308443669662`*^9, 
+   3.7719308481809316`*^9}},ExpressionUUID->"a1945163-b629-4ace-bee6-\
 984544904f7f"],
 
 Cell["\<\
@@ -171,9 +174,8 @@ Cell[BoxData[
      RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}]}], ";"}]], "Input",
  CellChangeTimes->{
   3.7719279240143003`*^9, {3.771928290911722*^9, 3.7719282971054506`*^9}, {
-   3.7719285092876196`*^9, 
-   3.7719285139010687`*^9}},ExpressionUUID->"70243ecb-fbcb-4e6f-a60b-\
-71537e86497a"],
+   3.7719285092876196`*^9, 3.7719285139010687`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"70243ecb-fbcb-4e6f-a60b-71537e86497a"],
 
 Cell["\<\
 Then, I isolated the names of the files from the pathways and stored them \
@@ -211,7 +213,7 @@ Cell[BoxData[
    3.7714298994246254`*^9}, {3.7714341939815006`*^9, 
    3.7714341953913774`*^9}, {3.7714374597253246`*^9, 
    3.7714374644585657`*^9}, {3.7716739012184024`*^9, 3.7716739066381783`*^9}},
- CellLabel->"In[2]:=",ExpressionUUID->"d58abc98-82ae-4da4-9dc9-f80dac1e7337"],
+ CellLabel->"In[5]:=",ExpressionUUID->"d58abc98-82ae-4da4-9dc9-f80dac1e7337"],
 
 Cell["\<\
 In order to avoid overloading the system, I decided at this point to just use \
@@ -241,9 +243,8 @@ Cell[BoxData[
   3.7716691503778543`*^9, 3.7716691536114726`*^9}, {3.771673891058034*^9, 
   3.771673891323592*^9}, {3.7716852489817266`*^9, 3.7716852494601536`*^9}, {
   3.7717603469859657`*^9, 3.7717603471421776`*^9}, {3.771761330039098*^9, 
-  3.771761355736355*^9}, {3.7719287780794506`*^9, 
-  3.771928778267541*^9}},ExpressionUUID->"e0dfd166-f8e2-4f59-b0b6-\
-598121f4fa5d"],
+  3.771761355736355*^9}, {3.7719287780794506`*^9, 3.771928778267541*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"e0dfd166-f8e2-4f59-b0b6-598121f4fa5d"],
 
 Cell[BoxData[
  RowBox[{
@@ -261,30 +262,921 @@ Cell[BoxData[
    3.771437483656146*^9, {3.7715103698139935`*^9, 3.771510392517969*^9}, {
    3.771583080155306*^9, 3.7715831083360505`*^9}, {3.7716689244142838`*^9, 
    3.7716689337164335`*^9}, {3.771673911082163*^9, 3.7716739165077376`*^9}},
- CellLabel->"In[4]:=",ExpressionUUID->"84e54e6d-a6d9-43f0-ba2c-78c3a160afcd"],
+ CellLabel->"In[7]:=",ExpressionUUID->"84e54e6d-a6d9-43f0-ba2c-78c3a160afcd"],
 
 Cell["\<\
 The data was not pre-tagged with Fiction and Non-Fiction classes, so I had to \
 manually research each of the texts and classify them. Then, I made a \
-function that returned True if it was Non-Fiction and False if it was Fiction.\
+function that returned True if it was Non-Fiction and False if it was Fiction \
+and replaced the Boolean expressions with the classes.\
 \>", "Text",
- CellChangeTimes->{{3.771929827675207*^9, 
-  3.7719299161348915`*^9}},ExpressionUUID->"b2c1d0d6-cade-48f0-bccb-\
+ CellChangeTimes->{{3.771929827675207*^9, 3.7719299161348915`*^9}, {
+  3.771932470210741*^9, 
+  3.771932479368306*^9}},ExpressionUUID->"b2c1d0d6-cade-48f0-bccb-\
 059f228bd6b4"],
 
 Cell["\<\
-The Non-Fic function returns True and False for Non-Fiction and Fiction \
-respectively\
+Defining a function that returns True and False for Non-Fiction and Fiction \
+respectively based on my research and applying it to the files.\
 \>", "CodeText",
- CellChangeTimes->{{3.7719299429918733`*^9, 
-  3.7719299738995185`*^9}},ExpressionUUID->"01bcb4f2-5e5f-4161-ba69-\
-8c9f9b784106"]
+ CellChangeTimes->{{3.7719299429918733`*^9, 3.7719299738995185`*^9}, {
+  3.771930186175977*^9, 
+  3.7719302360840335`*^9}},ExpressionUUID->"01bcb4f2-5e5f-4161-ba69-\
+8c9f9b784106"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"NonFic", "[", "title_", "]"}], ":=", 
+   RowBox[{"StringContainsQ", "[", 
+    RowBox[{"title", ",", 
+     InterpretationBox[
+      DynamicModuleBox[{Typeset`open = False}, 
+       TemplateBox[{"Expression",RowBox[{"Alternatives", "[", 
+           DynamicBox[
+            FEPrivate`FrontEndResource["FEBitmaps", "IconizeEllipsis"]], 
+           "]"}],GridBox[{{
+            RowBox[{
+              TagBox["\"Byte count: \"", "IconizedLabel"], 
+              "\[InvisibleSpace]", 
+              TagBox["2264", "IconizedItem"]}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],Dynamic[
+         Typeset`open]},
+        "IconizedObject"]],
+      Alternatives[
+      "Abraham Lincoln", "Albert Einstein", "An Essay on Criticism", 
+       "Essay on Man", "Alfred Russel Wallace", "A Cynic Looks at Life", 
+       "The Devil's Dictionary", "How To Fail In Literature", 
+       "Arnold Joseph Toynbee", "Bertrand Russell", "Benjamin Franklin", 
+       "Charles Darwin", "Charles Kingsley", "Edward Burke", 
+       "George Washington", "Herbert Spencer", "John Locke", 
+       "John Maynard Keynes", "John Morley", "John Ruskin", 
+       "John Stuart Mill", "Leigh Hunt", "Essays on Paul Borget", 
+       "Fenimore Cooper's Literary Offences", "How Tell a Story", 
+       "Mark Twain's Speeches", "Micheal Faraday", "Essays and Lectures", 
+       "Robert Hooke", "Essays, First", "Essays, Second", 
+       "Sir Francis Galton", "Sir Humphry Davy", "Sir Isaac Newton", 
+       "Sir Joseph Dalton Hooker", "Sir Richard Francis Burton", 
+       "Sir Winston Churchill", "Sir Thomas Carlyle", "Thomas Robert Malthus",
+        "Ulysses Grant", "William Penn"],
+      SelectWithContents->True,
+      Selectable->False]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"classGut", "=", 
+   RowBox[{"NonFic", "[", "filenames", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{
+  3.7719302036577597`*^9, {3.771930242765497*^9, 3.7719302497387495`*^9}, 
+   3.7719307740120673`*^9},
+ CellLabel->"In[8]:=",ExpressionUUID->"244b7c00-1b6f-4e81-afe7-c9d543c13496"],
+
+Cell["\<\
+Replacing the Boolean Expressions with the respective classes\
+\>", "CodeText",
+ CellChangeTimes->{{3.7719324938493533`*^9, 
+  3.771932504520258*^9}},ExpressionUUID->"42676734-50ab-4632-8cbf-\
+b53e96652716"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"classGut", "=", 
+   RowBox[{
+    RowBox[{"ReplaceAll", "[", 
+     RowBox[{"False", "\[Rule]", "\"\<Fiction\>\""}], "]"}], "[", "classGut", 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"classGut", "=", 
+   RowBox[{
+    RowBox[{"ReplaceAll", "[", 
+     RowBox[{"True", "\[Rule]", "\"\<Non-Fiction\>\""}], "]"}], "[", 
+    "classGut", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7719323825629463`*^9, 3.7719324604020267`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"7b7e4790-dd36-4bdd-8c36-6cabaabc2433"],
+
+Cell["\<\
+I put all the data(names of files, full texts of files, and class of files) \
+into a dataset for easy access and training later. \
+\>", "Text",
+ CellChangeTimes->{{3.7719304234337177`*^9, 3.7719304274246063`*^9}, {
+  3.771930533465814*^9, 3.771930561341673*^9}, {3.77193060132279*^9, 
+  3.7719306154039583`*^9}},ExpressionUUID->"92dd34ac-3ffb-4369-895d-\
+1f1bd295162d"],
+
+Cell["\<\
+Creating a dataset by associating the titles of columns with the lists of data\
+\>", "CodeText",
+ CellChangeTimes->{{3.7719306225386114`*^9, 
+  3.7719306404121275`*^9}},ExpressionUUID->"095dd370-fd86-49ea-9c5d-\
+ec40ef39ccfa"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"datasetGutFull", "=", 
+   RowBox[{"Dataset", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<FileName\>\"", "\[Rule]", " ", 
+         RowBox[{"filenames", "[", 
+          RowBox[{"[", "n", "]"}], "]"}]}], ",", 
+        RowBox[{"\"\<Class\>\"", "\[Rule]", " ", 
+         RowBox[{"classGut", "[", 
+          RowBox[{"[", "n", "]"}], "]"}]}], ",", 
+        RowBox[{"\"\<FullText\>\"", "\[Rule]", " ", 
+         RowBox[{"DataGutAll", "[", 
+          RowBox[{"[", "n", "]"}], "]"}]}]}], "|>"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "1", ",", "300"}], "}"}]}], "]"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.7719307494920015`*^9, 3.7719307667416053`*^9}, {
+  3.771933243741753*^9, 3.771933245961815*^9}, {3.7719345786009583`*^9, 
+  3.771934578748706*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"8b40b576-bff1-4774-b9b8-d4417b397ea1"]
 }, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell["Obtaining the ExampleData texts", "Subsection",
  CellChangeTimes->{{3.771928632584489*^9, 
   3.771928645934713*^9}},ExpressionUUID->"f7ed1b79-3397-49cc-90b7-\
-37e86874efff"]
+37e86874efff"],
+
+Cell["\<\
+There is a function called ExampleData that has example data for various \
+types of entities and works. The ExampleData texts contain speeches, books, \
+plays, and more. First, I obtained all the file names using ExampleData. \
+However, the file names were in the format {Text, \
+\[OpenCurlyDoubleQuote]FileName\[CloseCurlyDoubleQuote]}, so I had to isolate \
+the names. \
+\>", "Text",
+ CellChangeTimes->{{3.7719308262114477`*^9, 3.7719308364414444`*^9}, {
+  3.7719309373601727`*^9, 3.7719309456604586`*^9}, {3.771931018264394*^9, 
+  3.7719310503550773`*^9}, {3.771931163920786*^9, 3.771931165040722*^9}, {
+  3.7719312716774497`*^9, 3.7719312967756715`*^9}, {3.771931331021996*^9, 
+  3.7719314306708117`*^9}, {3.771931475584643*^9, 
+  3.771931476293112*^9}},ExpressionUUID->"a298b222-b55b-4a18-9b0e-\
+b8562c22bf4e"],
+
+Cell["Find all the files available under Texts in ExampleData[]", "CodeText",
+ CellChangeTimes->{{3.7719314840454645`*^9, 
+  3.771931499621716*^9}},ExpressionUUID->"b213227b-0321-4641-8a7f-\
+b6b46f5367b2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fullfilenamesEx", "=", 
+   RowBox[{"ExampleData", "[", "\"\<Text\>\"", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7719315154946322`*^9, 3.7719315239931526`*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"931a972c-1757-475b-b312-226c04757aac"],
+
+Cell["Isolate the names of the files.", "CodeText",
+ CellChangeTimes->{{3.7719315471313195`*^9, 3.7719315519848027`*^9}, {
+  3.7719319328365116`*^9, 
+  3.7719319341695356`*^9}},ExpressionUUID->"4c91261c-2e76-4541-ba46-\
+5a59d95fe1cd"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"filenamesEx", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"fullfilenamesEx", "[", 
+      RowBox[{"[", 
+       RowBox[{"n", ",", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", 
+       RowBox[{"Length", "[", "fullfilenamesEx", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{3.771931560830188*^9},
+ CellLabel->"In[14]:=",ExpressionUUID->"3134464d-eb25-43f3-955a-63509a89390e"],
+
+Cell["\<\
+Some of the ExampleData texts are religious or not in English, so I removed \
+those from the list before obtaining all the texts.\
+\>", "Text",
+ CellChangeTimes->{{3.77193173098699*^9, 
+  3.7719318028536735`*^9}},ExpressionUUID->"1dd2fef3-e7fc-4ead-9907-\
+89e971b3bfe2"],
+
+Cell["Delete all the irrelevant file names from the list.", "CodeText",
+ CellChangeTimes->{{3.7719318393736067`*^9, 3.771931852196986*^9}, 
+   3.7719319313510485`*^9},ExpressionUUID->"439b8ee1-72d3-4a4e-af2b-\
+e8d903390393"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"filenamesExEng", "=", 
+   RowBox[{"Delete", "[", 
+    RowBox[{"filenamesEx", ",", 
+     InterpretationBox[
+      DynamicModuleBox[{Typeset`open = False}, 
+       TemplateBox[{"List","ListIcon",GridBox[{{
+            RowBox[{
+              TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+              TagBox["List", "IconizedItem"]}]}, {
+            RowBox[{
+              TagBox["\"Dimensions: \"", "IconizedLabel"], 
+              "\[InvisibleSpace]", 
+              TagBox[
+               RowBox[{"{", 
+                 RowBox[{"27", ",", "1"}], "}"}], "IconizedItem"]}]}, {
+            RowBox[{
+              TagBox["\"Byte count: \"", "IconizedLabel"], 
+              "\[InvisibleSpace]", 
+              TagBox["1984", "IconizedItem"]}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],Dynamic[
+         Typeset`open]},
+        "IconizedObject"]],
+      {{2}, {5}, {9}, {13}, {16}, {18}, {19}, {27}, {30}, {31}, {32}, {34}, {
+      35}, {36}, {37}, {38}, {39}, {40}, {41}, {42}, {43}, {44}, {45}, {46}, {
+      47}, {48}, {49}},
+      SelectWithContents->True,
+      Selectable->False]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{3.771931862918208*^9},
+ CellLabel->"In[15]:=",ExpressionUUID->"d248fac3-cb07-4eaa-8f9c-7b0875e3a291"],
+
+Cell["Make a list of the relevant texts from their file names.", "CodeText",
+ CellChangeTimes->{{3.7719319056372385`*^9, 
+  3.771931927902866*^9}},ExpressionUUID->"755bcc9a-2db1-4383-b2d8-\
+f23a7d82e550"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"textsEx", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"ExampleData", "[", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Text\>\"", ",", 
+        RowBox[{"filenamesExEng", "[", 
+         RowBox[{"[", "n", "]"}], "]"}]}], "}"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", 
+       RowBox[{"Length", "[", "filenamesExEng", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[16]:=",ExpressionUUID->"6a15408e-ea57-4cd3-91a1-4d0bd13ee3fa"],
+
+Cell["\<\
+The ExampleData texts were also not pre-tagged so I had to classify them into \
+Fiction and Non-Fiction manually.\
+\>", "Text",
+ CellChangeTimes->{{3.771931647449253*^9, 3.771931667865752*^9}, {
+  3.7719320201183834`*^9, 
+  3.7719320314382668`*^9}},ExpressionUUID->"2b20ef73-c6b0-4b93-8cb0-\
+0e00129dcdb8"],
+
+Cell["Make a list of classes that corresponds to the texts.", "CodeText",
+ CellChangeTimes->{{3.771932079570941*^9, 3.771932099792966*^9}, {
+  3.771932243263482*^9, 3.771932260337777*^9}, {3.7719325133994694`*^9, 
+  3.7719325262405615`*^9}},ExpressionUUID->"df586b76-8fc9-4bec-8a00-\
+fbab26f59618"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"classEx", "=", 
+   InterpretationBox[
+    DynamicModuleBox[{Typeset`open = False}, 
+     TemplateBox[{"List","ListIcon",GridBox[{{
+          RowBox[{
+            TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+            TagBox["List", "IconizedItem"]}]}, {
+          RowBox[{
+            TagBox["\"Length: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+            TagBox["23", "IconizedItem"]}]}, {
+          RowBox[{
+            TagBox["\"Byte count: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+            TagBox["1048", "IconizedItem"]}]}}, 
+        GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+        "Column", 
+        GridBoxItemSize -> {
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],Dynamic[
+       Typeset`open]},
+      "IconizedObject"]],
+    {"Fiction", "Fiction", "Fiction", "Non-Fiction", "Non-Fiction", "Fiction",
+      "Fiction", "Non-Fiction", "Fiction", "Non-Fiction", "Fiction", 
+     "Non-Fiction", "Non-Fiction", "Non-Fiction", "Non-Fiction", 
+     "Non-Fiction", "Fiction", "Fiction", "Fiction", "Fiction", "Fiction", 
+     "Non-Fiction", "Non-Fiction"},
+    SelectWithContents->True,
+    Selectable->False]}], ";"}]], "Input",
+ CellChangeTimes->{{3.771932268546399*^9, 3.7719323713610735`*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"027adf89-9ba6-4fc2-a2f0-0d3acb54703c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Partitioning the Texts", "Subsection",
+ CellChangeTimes->{{3.7719325582077856`*^9, 
+  3.771932562308626*^9}},ExpressionUUID->"d92e4cf4-f332-4cc5-80ba-\
+d1280ffcd405"],
+
+Cell["\<\
+Because each of the texts are full texts of books, it takes a long time to \
+classify them. So, after multiple unnecessarily long machine learning models \
+had ran, I realized that partitioning the strings of each text would make \
+them easier to process and classify, especially since the patterns could be \
+easier to understand with more sections of each text. So, I made a function \
+that partitions each text into sections with 5000 characters each and \
+associates them with their class in preparation for classification. \
+\>", "Text",
+ CellChangeTimes->{{3.7719327360903597`*^9, 3.7719327635002766`*^9}, {
+   3.771932836106501*^9, 3.771932838314993*^9}, {3.7719328764865227`*^9, 
+   3.771932969003162*^9}, {3.7719330531405725`*^9, 3.7719330819509544`*^9}, {
+   3.771933147761554*^9, 3.771933162371934*^9}, 
+   3.771933352491106*^9},ExpressionUUID->"3d7464b0-bfff-484a-a4a6-\
+f5d839002351"],
+
+Cell["\<\
+This function partitions each text into sections of 5000 characters and \
+associates them with their class. \
+\>", "CodeText",
+ CellChangeTimes->{{3.7719331014118156`*^9, 3.7719331019662037`*^9}, {
+  3.771933134212165*^9, 
+  3.771933190389806*^9}},ExpressionUUID->"66744f38-c059-4a03-a37a-\
+6bc8f5833b63"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"partition", "[", 
+    RowBox[{"text_", ",", "class_"}], "]"}], ":=", 
+   RowBox[{"With", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", "=", 
+       RowBox[{"StringPartition", "[", 
+        RowBox[{"text", ",", "5000"}], "]"}]}], "}"}], ",", 
+     RowBox[{"Thread", "[", 
+      RowBox[{"a", "\[Rule]", 
+       RowBox[{"Table", "[", 
+        RowBox[{"class", ",", 
+         RowBox[{"{", 
+          RowBox[{"Length", "[", "a", "]"}], "}"}]}], "]"}]}], "]"}]}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.771933129168723*^9, 3.771933131750755*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"96cc1ee1-3eb3-4c39-b0d3-3bb119600fe6"],
+
+Cell["\<\
+Then, I ran the partition function for my two datasets and joined the \
+resulting lists together for classification.\
+\>", "Text",
+ CellChangeTimes->{{3.771933361149044*^9, 
+  3.771933377957408*^9}},ExpressionUUID->"edca701e-4e1f-42dd-874d-\
+23feb0a12f46"],
+
+Cell["\<\
+Runs the Gutenberg dataset through the partition function and returns the \
+sections as a list.\
+\>", "CodeText",
+ CellChangeTimes->{{3.771933205115175*^9, 3.771933206361533*^9}, {
+  3.77193326735369*^9, 
+  3.7719333108519816`*^9}},ExpressionUUID->"c8933d0d-15ac-407b-80cf-\
+a22cdddfc79a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"datasetGutPart", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"partition", "[", 
+       RowBox[{
+        RowBox[{"datasetGutFull", "[", 
+         RowBox[{"n", ",", "\"\<FullText\>\""}], "]"}], ",", 
+        RowBox[{"datasetGutFull", "[", 
+         RowBox[{"n", ",", "\"\<Class\>\""}], "]"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "1", ",", 
+        RowBox[{"Length", "[", "datasetGutFull", "]"}]}], "}"}]}], "]"}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7719332586539917`*^9, 3.771933260291196*^9}, 
+   3.7719345877631063`*^9},
+ CellLabel->"In[22]:=",ExpressionUUID->"c599108d-90f5-4728-b0d5-d4d4c38a59c1"],
+
+Cell["\<\
+Runs the ExampleData dataset through the partition function and returns the \
+sections as a list.\
+\>", "CodeText",
+ CellChangeTimes->{{3.7719332909608393`*^9, 
+  3.7719333086579833`*^9}},ExpressionUUID->"70d2a6f6-87fc-4014-8e3e-\
+4a7c50019ad8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dataExamplePart", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"partition", "[", 
+       RowBox[{
+        RowBox[{"textsEx", "[", 
+         RowBox[{"[", "n", "]"}], "]"}], ",", 
+        RowBox[{"classEx", "[", 
+         RowBox[{"[", "n", "]"}], "]"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "1", ",", 
+        RowBox[{"Length", "[", "textsEx", "]"}]}], "}"}]}], "]"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.771934611410652*^9, 3.77193461665616*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"83e0e479-b228-4988-8c55-e940f758baed"],
+
+Cell[TextData[StyleBox["Join the two lists for the ExampleData and Gutenberg \
+dataset so there is just one long list of sections associated with their \
+class.", "CodeText"]], "Text",
+ CellChangeTimes->{{3.7719333860198994`*^9, 3.771933386559905*^9}, {
+  3.771933436576377*^9, 
+  3.771933487114889*^9}},ExpressionUUID->"2c5392e8-e190-4eee-be4c-\
+01ef873f7be6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"datasetGutAndEx", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"datasetGutPart", ",", "dataExamplePart"}], "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[25]:=",ExpressionUUID->"cd8ea913-7bd7-49bc-bfa8-c5d9f92fa45d"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Creating and Deploying the Machine Learning Model", "Section",
+ CellChangeTimes->{{3.771933580906092*^9, 3.771933585866538*^9}, {
+   3.771933626085847*^9, 3.771933627428331*^9}, {3.7719337040426826`*^9, 
+   3.771933705970703*^9}, 
+   3.771934640615549*^9},ExpressionUUID->"b88603aa-5ed1-46eb-ab3c-\
+68906a8284db"],
+
+Cell[CellGroupData[{
+
+Cell["Classification and Machine Learning", "Subsection",
+ CellChangeTimes->{{3.771933635556028*^9, 3.771933638707101*^9}, {
+  3.7719337072813034`*^9, 
+  3.7719337137303877`*^9}},ExpressionUUID->"578d943a-646a-488b-9d22-\
+6cde84bb00d0"],
+
+Cell["\<\
+In order to achieve the most efficient and most accurate model possible with \
+my data, I experimented with various types of machine learning, such as \
+RandomForest, LinearRegression, NeuralNetworks, and Markov. I found that the \
+most accurate method of machine learning for this project was Markov Method \
+machine learning which yielded approximately 95% accuracy. So, I used \
+Classify to create my model. \
+\>", "Text",
+ CellChangeTimes->{{3.7719336582269564`*^9, 3.7719337569109535`*^9}, {
+  3.771933855159153*^9, 3.771933873760479*^9}, {3.7719339460052743`*^9, 
+  3.771934001793115*^9}},ExpressionUUID->"0b7c68eb-375a-447c-a2fa-\
+28b745cd8385"],
+
+Cell["Classify all the data using Markov Method Machine Learning", "CodeText",
+ CellChangeTimes->{{3.7719339670594387`*^9, 3.7719339709637423`*^9}, {
+  3.771934005984625*^9, 
+  3.771934018909277*^9}},ExpressionUUID->"1d3f8cb7-9c47-4c9b-96ba-\
+8562398f6ae2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"classifyMarkov300Gut", "=", 
+  RowBox[{"Classify", "[", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"datasetGutAndEx", "[", 
+       RowBox[{"[", "n", "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "1", ",", 
+        RowBox[{"Length", "[", "datasetGutAndEx", "]"}]}], "}"}]}], "]"}], 
+    ",", 
+    RowBox[{"Method", "\[Rule]", "\"\<Markov\>\""}]}], "]"}]}]], "Input",
+ CellLabel->"In[26]:=",ExpressionUUID->"7b2e447b-18b7-4a62-9340-73d35946e63d"],
+
+Cell[BoxData[
+ TagBox[
+  TemplateBox[{RowBox[{
+      StyleBox[
+       TagBox["ClassifierFunction", "SummaryHead"], 
+       "NonInterpretableSummary"], 
+      StyleBox["[", "NonInterpretableSummary"], 
+      DynamicModuleBox[{
+       Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+       TemplateBox[{
+         TemplateBox[{
+           PaneSelectorBox[{False -> GridBox[{{
+                 PaneBox[
+                  ButtonBox[
+                   DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SquarePlusIconMedium"]], 
+                   ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                   None, Evaluator -> Automatic, Method -> "Preemptive"], 
+                  Alignment -> {Center, Center}, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                 GraphicsBox[{{
+                    PointSize[0.13], 
+                    GrayLevel[0.45], 
+                    
+                    PointBox[{{0.9821769431797024, -0.440194219686987}, {
+                    1.1339776261519132`, 0.8056918676854272}, {
+                    0.5279892326667741, 0.6574306661126254}, {
+                    0.022147046479890797`, 1.4937877187998898`}}], 
+                    GrayLevel[0.7], 
+                    
+                    PointBox[{{-0.9815166384819979, 
+                    0.15045697525228735`}, {-0.5923526886966953, \
+-0.33441771553094035`}, {-0.005656646679640442, -1.462421365651345}, \
+{-1.0734370436522753`, -1.3729645043477454`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    LineBox[{{-1., 1.5}, {1, -1.6}}]}}, {
+                  Axes -> {False, False}, AxesLabel -> {None, None}, 
+                   AxesOrigin -> {0, 0}, BaseStyle -> {FontFamily -> "Arial", 
+                    AbsoluteThickness[1.5]}, DisplayFunction -> Identity, 
+                   Frame -> {{True, True}, {True, True}}, 
+                   FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+                   Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.7]], 
+                   FrameTicks -> {{None, None}, {None, None}}, 
+                   GridLines -> {None, None}, 
+                   LabelStyle -> {FontFamily -> "Arial"}, 
+                   Method -> {"ScalingFunctions" -> None}, 
+                   PlotRange -> {{-1., 1}, {-1.3, 1.1}}, PlotRangeClipping -> 
+                   True, PlotRangePadding -> {{0.7, 0.7}, {0.7, 0.7}}, 
+                   Ticks -> {None, None}}, Axes -> False, AspectRatio -> 1, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}], Frame -> True, 
+                  FrameTicks -> None, FrameStyle -> Directive[
+                    Opacity[0.5], 
+                    Thickness[Tiny], 
+                    RGBColor[0.368417, 0.506779, 0.709798]], Background -> 
+                  GrayLevel[0.94]], 
+                 GridBox[{{
+                    RowBox[{
+                    TagBox["\"Input type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Text\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Classes: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    
+                    TemplateBox[{
+                    ",", "\",\"", "\"Fiction\"", "\"Non-Fiction\""}, 
+                    "RowWithSeparators"], "SummaryItem"]}]}}, 
+                  GridBoxAlignment -> {
+                   "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                  AutoDelete -> False, 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {
+                   "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                  BaseStyle -> {
+                   ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+               GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               BaselinePosition -> {1, 1}], True -> GridBox[{{
+                 PaneBox[
+                  ButtonBox[
+                   DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SquareMinusIconMedium"]], 
+                   ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                   None, Evaluator -> Automatic, Method -> "Preemptive"], 
+                  Alignment -> {Center, Center}, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                 GraphicsBox[{{
+                    PointSize[0.13], 
+                    GrayLevel[0.45], 
+                    
+                    PointBox[{{0.9821769431797024, -0.440194219686987}, {
+                    1.1339776261519132`, 0.8056918676854272}, {
+                    0.5279892326667741, 0.6574306661126254}, {
+                    0.022147046479890797`, 1.4937877187998898`}}], 
+                    GrayLevel[0.7], 
+                    
+                    PointBox[{{-0.9815166384819979, 
+                    0.15045697525228735`}, {-0.5923526886966953, \
+-0.33441771553094035`}, {-0.005656646679640442, -1.462421365651345}, \
+{-1.0734370436522753`, -1.3729645043477454`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    LineBox[{{-1., 1.5}, {1, -1.6}}]}}, {
+                  Axes -> {False, False}, AxesLabel -> {None, None}, 
+                   AxesOrigin -> {0, 0}, BaseStyle -> {FontFamily -> "Arial", 
+                    AbsoluteThickness[1.5]}, DisplayFunction -> Identity, 
+                   Frame -> {{True, True}, {True, True}}, 
+                   FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+                   Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.7]], 
+                   FrameTicks -> {{None, None}, {None, None}}, 
+                   GridLines -> {None, None}, 
+                   LabelStyle -> {FontFamily -> "Arial"}, 
+                   Method -> {"ScalingFunctions" -> None}, 
+                   PlotRange -> {{-1., 1}, {-1.3, 1.1}}, PlotRangeClipping -> 
+                   True, PlotRangePadding -> {{0.7, 0.7}, {0.7, 0.7}}, 
+                   Ticks -> {None, None}}, Axes -> False, AspectRatio -> 1, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}], Frame -> True, 
+                  FrameTicks -> None, FrameStyle -> Directive[
+                    Opacity[0.5], 
+                    Thickness[Tiny], 
+                    RGBColor[0.368417, 0.506779, 0.709798]], Background -> 
+                  GrayLevel[0.94]], 
+                 GridBox[{{
+                    RowBox[{
+                    TagBox["\"Input type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Text\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Classes: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    
+                    TemplateBox[{
+                    ",", "\",\"", "\"Fiction\"", "\"Non-Fiction\""}, 
+                    "RowWithSeparators"], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Method: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Markov\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    "\"Number of training examples: \"", 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox["25445", "SummaryItem"]}]}}, 
+                  GridBoxAlignment -> {
+                   "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                  AutoDelete -> False, 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {
+                   "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                  BaseStyle -> {
+                   ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+               GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               BaselinePosition -> {1, 1}]}, 
+            Dynamic[Typeset`open$$], ImageSize -> Automatic]}, 
+          "SummaryPanel"], 
+         ButtonBox[
+          DynamicBox[
+           ToBoxes[
+            If[
+             
+             Or[$VersionNumber < 11.2, CurrentValue["RunningEvaluator"] =!= 
+              "Local"], 
+             Style["This object cannot be used as input.", "SummaryEmbed"], 
+             BoxForm`EmbedSummaryLabel[ClassifierFunction, 3235344, 
+              Dynamic[Typeset`embedState$$]]], StandardForm]], ButtonFunction :> 
+          BoxForm`EmbedSummaryInterpretation[
+           ClassifierFunction, 
+            6878439213811331749710787348062602958997784758025972790896, 
+            EvaluationBox[], 
+            Dynamic[Typeset`embedState$$], StandardForm], DefaultBaseStyle -> 
+          "SummaryEmbedButton", BaseStyle -> {"DialogStyle"}, Enabled -> 
+          Dynamic[
+            
+            And[$VersionNumber >= 11.2, CurrentValue["RunningEvaluator"] === 
+             "Local", Typeset`embedState$$ === "Ready"]], Appearance -> 
+          Inherited, Method -> Inherited, Evaluator -> Automatic]}, 
+        "SummaryEmbedGrid"], DynamicModuleValues :> {}], 
+      StyleBox["]", "NonInterpretableSummary"]}]},
+   "CopyTag",
+   DisplayFunction->(#& ),
+   InterpretationFunction->("ClassifierFunction[\[Ellipsis]]"& )],
+  False,
+  BoxID -> 6878439213811331749710787348062602958997784758025972790896,
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.771935066575202*^9},
+ CellLabel->"Out[26]=",ExpressionUUID->"8c37ea6e-fbc2-4a4e-b249-8cf002f91711"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Deploying Project Using Microsite ", "Subsection",
+ CellChangeTimes->{{3.7719340684967732`*^9, 
+  3.7719340773003664`*^9}},ExpressionUUID->"8ec032a8-8175-4664-8341-\
+30c71a3d6c04"],
+
+Cell["\<\
+Next, I made a function called finalClass that takes a text, partitions it \
+into sections of 500 characters each, classifies it, and returns the average \
+probability that the text is fiction or non-fiction.\
+\>", "Text",
+ CellChangeTimes->{{3.7719340861753454`*^9, 3.7719341530868096`*^9}, {
+  3.7719347764218736`*^9, 
+  3.7719347766693773`*^9}},ExpressionUUID->"aa5a2ac2-d72d-4661-bc8a-\
+f0b21b2e9f49"],
+
+Cell["Combine everything into one function", "CodeText",
+ CellChangeTimes->{{3.77193415992817*^9, 
+  3.7719341636517963`*^9}},ExpressionUUID->"43bc617c-47f9-45f6-9d2f-\
+543ab2059c81"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"finalClass", "[", "text_String", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Mean", "[", 
+    RowBox[{"classifyMarkov300Gut", "[", 
+     RowBox[{
+      RowBox[{"StringPartition", "[", 
+       RowBox[{"text", ",", "500"}], "]"}], ",", "\"\<Probabilities\>\""}], 
+     "]"}], "]"}], "*", "100"}]}]], "Input",
+ CellLabel->"In[27]:=",ExpressionUUID->"cebd622b-bd64-4be1-95d5-e3949227ec15"],
+
+Cell["\<\
+I used CloudDeploy to create a microsite where a user can input a text and \
+find the probability of fictionality\
+\>", "Text",
+ CellChangeTimes->{{3.7719342040237265`*^9, 
+  3.7719342276153297`*^9}},ExpressionUUID->"5820510a-b0c8-49ca-875f-\
+4a11b87c829e"],
+
+Cell["Launch a microsite for the general public", "CodeText",
+ CellChangeTimes->{{3.7719342354936967`*^9, 
+  3.771934249780553*^9}},ExpressionUUID->"bcd616a2-9682-483a-96d6-\
+c3d3b7a427c0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CloudDeploy", "[", 
+  RowBox[{
+   RowBox[{"FormFunction", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\<Text\>\"", "\[Rule]", "\"\<TextArea\>\""}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"finalClass", "[", "#Text", "]"}], "&"}], ",", 
+     InterpretationBox[
+      DynamicModuleBox[{Typeset`open = False}, 
+       TemplateBox[{"Expression","SequenceIcon",GridBox[{{
+            RowBox[{
+              TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+              TagBox["Sequence", "IconizedItem"]}]}, {
+            RowBox[{
+              TagBox["\"Length: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+              TagBox["2", "IconizedItem"]}]}, {
+            RowBox[{
+              TagBox["\"Byte count: \"", "IconizedLabel"], 
+              "\[InvisibleSpace]", 
+              TagBox["1176", "IconizedItem"]}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "Column", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],Dynamic[
+         Typeset`open]},
+        "IconizedObject"]],
+      Sequence[
+      AppearanceRules -> 
+       Association[
+        "Title" -> 
+         "Classifying Fiction And Non-Fiction Works Using Machine Learning", 
+         "Description" -> 
+         "This project was completed during the Wolfram High School Summer \
+Camp by Rachna Gupta using Wolfram Language in Mathematica. A Machine \
+Learning Markov Model was trained to determine the fictionality of an unknown \
+work using various work from the Project Gutenberg public dataset and data \
+from the Wolfram Example Data. Please input a passage of more than 500 \
+characters of the work to be classified in the field below. The result will \
+be a list of probabilities that the work is fiction or non-fiction as \
+computed by the model. As of right now, this model is approximately 96% \
+accurate."], PageTheme -> "Blue"],
+      SelectWithContents->True,
+      Selectable->False]}], "]"}], ",", "\"\<FictionvsNonFiction\>\"", ",", 
+   RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7719343809719315`*^9, 3.771934425617442*^9}, {
+  3.7719344722767487`*^9, 3.7719344791044865`*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"9407c0ec-135c-423d-9a5e-9a57faf38640"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/obj/rachgupta200/FictionvsNonFiction\"",
+     "https://www.wolframcloud.com/obj/rachgupta200/FictionvsNonFiction"},
+    "HyperlinkURL"], "]"}],
+  CloudObject[
+  "https://www.wolframcloud.com/obj/rachgupta200/FictionvsNonFiction"],
+  SelectWithContents->True]], "Output",
+ CellChangeTimes->{3.7719350737593365`*^9},
+ CellLabel->"Out[28]=",ExpressionUUID->"9058b981-bd7e-4b90-a8fc-eb9da169c662"]
+}, Open  ]],
+
+Cell[TextData[{
+ "This microsite can be accessed at this link: ",
+ Cell[BoxData[
+  TemplateBox[{
+   "\"https://www.wolframcloud.com/obj/rachgupta200/FictionvsNonFiction\"",
+    "https://www.wolframcloud.com/obj/rachgupta200/FictionvsNonFiction"},
+   "HyperlinkURL"]],
+  CellChangeTimes->{3.7717592683290496`*^9, 3.771759335368204*^9, 
+   3.7717594651780543`*^9, 3.771759791186324*^9, 3.7717618409100337`*^9, 
+   3.7717622688535385`*^9, 3.771841606512777*^9, 3.7718421043559837`*^9},
+  ExpressionUUID->"0e59688e-60b7-44ca-9cd2-84b303a5234b"]
+}], "Text",
+ CellChangeTimes->{{3.7719344916078124`*^9, 
+  3.771934513418456*^9}},ExpressionUUID->"99731626-4ecd-46bf-b7f3-\
+62d11e69494b"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conclusion", "Section",
+ CellChangeTimes->{{3.7719348207126565`*^9, 
+  3.7719348338983045`*^9}},ExpressionUUID->"0faf6c35-f109-4cb8-becc-\
+b97fb70eb8c1"],
+
+Cell[TextData[{
+ "Through this project, I successfully created a model that can accurately \
+classify fiction and non-fiction texts. The classifier takes an input of any \
+English text greater than 500 characters and gives an output of the \
+probability that the given work is fiction or non-fiction. The working \
+project can be found at this link ",
+ Cell[BoxData[
+  TemplateBox[{
+   "\"https://www.wolframcloud.com/obj/rachgupta200/FictionvsNonFiction\"",
+    "https://www.wolframcloud.com/obj/rachgupta200/FictionvsNonFiction"},
+   "HyperlinkURL"]],
+  CellChangeTimes->{3.7717592683290496`*^9, 3.771759335368204*^9, 
+   3.7717594651780543`*^9, 3.771759791186324*^9, 3.7717618409100337`*^9, 
+   3.7717622688535385`*^9, 3.771841606512777*^9, 3.7718421043559837`*^9},
+  ExpressionUUID->"4cb24513-29b1-46b8-b189-21c1a32f0716"],
+ ". Throughout this project, I explored the possibilities of machine learning \
+and learned about how to use Mathematica to process, analyze, and classify \
+data. Even though I reached my objective, I do not believe the project is \
+finished, as there are multiple features I would like to add or improve on in \
+the future."
+}], "Text",
+ CellChangeTimes->{{3.7719348742900352`*^9, 
+  3.771935030161354*^9}},ExpressionUUID->"8632fb66-dc41-4e5b-a7d5-\
+d0db87521915"],
+
+Cell[CellGroupData[{
+
+Cell["Future Work", "Subsection",
+ CellChangeTimes->{{3.771935037230377*^9, 
+  3.771935039195033*^9}},ExpressionUUID->"4a522cfe-d28b-4920-850e-\
+996525f0aada"],
+
+Cell["\<\
+In the future, I would like to  explore the possibility of using more data \
+from the Wolfram Data Repository to train the model and increase the \
+accuracy. I would also like to explore making the classifier more specific, \
+such as identifying the genre of the work and mapping the \
+\[OpenCurlyDoubleQuote]fictionality\[CloseCurlyDoubleQuote] of the work on a \
+scale. For example, historical fiction would be closer to non-fiction on the \
+scale than fantasy or magical realism. I would like to add a feature that can \
+create a fiction or non-fiction work based on the patterns and rules that the \
+classifier used to classify the texts. \
+\>", "Text",
+ CellChangeTimes->{{3.7719350577087164`*^9, 
+  3.771935108436699*^9}},ExpressionUUID->"b8863695-95ba-42d2-824c-\
+3705ccbd5ee5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Acknowledgements", "Subsection",
+ CellChangeTimes->{{3.771935122192609*^9, 
+  3.77193512400386*^9}},ExpressionUUID->"b1b75b6f-116f-47cf-a7e0-\
+2cdcfa53c6a5"],
+
+Cell["\<\
+I would like to thank my amazing mentor, Sylvia Haas, as well as all the \
+other mentors at the Wolfram Summer High School Camp for their guidance and \
+help with my project. I would like to thank Project Gutenberg for their \
+invaluable data. \
+\>", "Text",
+ CellChangeTimes->{{3.7719351848407903`*^9, 
+  3.7719352330939884`*^9}},ExpressionUUID->"d2b67380-70f1-4750-8819-\
+7227598cd134"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
@@ -324,33 +1216,106 @@ Cell[CellGroupData[{
 Cell[1694, 48, 166, 3, 67, "Section",ExpressionUUID->"1b33f079-7467-4ad4-8149-5d3ffb32090c"],
 Cell[CellGroupData[{
 Cell[1885, 55, 185, 3, 53, "Subsection",ExpressionUUID->"55d86eb0-cacd-4778-98cc-caec65d25de2"],
-Cell[2073, 60, 652, 11, 78, "Text",ExpressionUUID->"c84798d8-0ecd-42b5-be4c-7ca3007353e4"],
-Cell[2728, 73, 190, 4, 38, "Input",ExpressionUUID->"7f73ecec-8e5d-4a65-ad5e-c1c107617d80"],
-Cell[2921, 79, 906, 13, 78, "Text",ExpressionUUID->"e295d89f-74fb-4f24-9a4e-fd92ed27c1eb"]
+Cell[2073, 60, 652, 11, 78, "Text",ExpressionUUID->"c84798d8-0ecd-42b5-be4c-7ca3007353e4"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2762, 76, 183, 3, 37, "Subsection",ExpressionUUID->"7f73ecec-8e5d-4a65-ad5e-c1c107617d80"],
+Cell[2948, 81, 906, 13, 78, "Text",ExpressionUUID->"e295d89f-74fb-4f24-9a4e-fd92ed27c1eb"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3903, 100, 329, 5, 53, "Section",ExpressionUUID->"51585a3d-a81a-42bf-a6a1-cc0bfc4966b0"],
+Cell[CellGroupData[{
+Cell[4257, 109, 166, 3, 53, "Subsection",ExpressionUUID->"f56526b3-ed21-4af2-b57b-91a6e3687783"],
+Cell[4426, 114, 1057, 16, 78, "Text",ExpressionUUID->"2305810b-75a8-446b-8eb9-84ed3d7b68b8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5520, 135, 304, 4, 53, "Subsection",ExpressionUUID->"cbd4c6ef-9482-404d-8a4f-3aecc0bb8d56"],
+Cell[5827, 141, 1055, 16, 56, "Text",ExpressionUUID->"a1945163-b629-4ace-bee6-984544904f7f"],
+Cell[6885, 159, 377, 7, 37, "CodeText",ExpressionUUID->"aef9c1b2-894c-4a52-bbd4-483b71a0548d"],
+Cell[7265, 168, 421, 9, 28, "Input",ExpressionUUID->"70243ecb-fbcb-4e6f-a60b-71537e86497a"],
+Cell[7689, 179, 421, 8, 34, "Text",ExpressionUUID->"ba7fbac6-cdf2-4b36-878f-87a862da24ee"],
+Cell[8113, 189, 318, 6, 37, "CodeText",ExpressionUUID->"b1e4fb45-c65e-49da-8373-1bb846b48ff1"],
+Cell[8434, 197, 839, 18, 28, "Input",ExpressionUUID->"d58abc98-82ae-4da4-9dc9-f80dac1e7337"],
+Cell[9276, 217, 428, 8, 34, "Text",ExpressionUUID->"443bfacf-78c2-4c5e-b63f-629f8560af7f"],
+Cell[9707, 227, 225, 5, 37, "CodeText",ExpressionUUID->"7c33abb0-6c16-4cc7-bc34-99586a9702b7"],
+Cell[9935, 234, 747, 12, 28, "Input",ExpressionUUID->"e0dfd166-f8e2-4f59-b0b6-598121f4fa5d"],
+Cell[10685, 248, 902, 16, 28, "Input",ExpressionUUID->"84e54e6d-a6d9-43f0-ba2c-78c3a160afcd"],
+Cell[11590, 266, 487, 9, 56, "Text",ExpressionUUID->"b2c1d0d6-cade-48f0-bccb-059f228bd6b4"],
+Cell[12080, 277, 350, 7, 37, "CodeText",ExpressionUUID->"01bcb4f2-5e5f-4161-ba69-8c9f9b784106"],
+Cell[12433, 286, 2230, 46, 55, "Input",ExpressionUUID->"244b7c00-1b6f-4e81-afe7-c9d543c13496"],
+Cell[14666, 334, 217, 5, 37, "CodeText",ExpressionUUID->"42676734-50ab-4632-8cbf-b53e96652716"],
+Cell[14886, 341, 563, 14, 48, "Input",ExpressionUUID->"7b7e4790-dd36-4bdd-8c36-6cabaabc2433"],
+Cell[15452, 357, 379, 7, 34, "Text",ExpressionUUID->"92dd34ac-3ffb-4369-895d-1f1bd295162d"],
+Cell[15834, 366, 236, 5, 37, "CodeText",ExpressionUUID->"095dd370-fd86-49ea-9c5d-ec40ef39ccfa"],
+Cell[16073, 373, 945, 23, 28, "Input",ExpressionUUID->"8b40b576-bff1-4774-b9b8-d4417b397ea1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17055, 401, 179, 3, 53, "Subsection",ExpressionUUID->"f7ed1b79-3397-49cc-90b7-37e86874efff"],
+Cell[17237, 406, 825, 14, 56, "Text",ExpressionUUID->"a298b222-b55b-4a18-9b0e-b8562c22bf4e"],
+Cell[18065, 422, 205, 3, 37, "CodeText",ExpressionUUID->"b213227b-0321-4641-8a7f-b6b46f5367b2"],
+Cell[18273, 427, 280, 5, 28, "Input",ExpressionUUID->"931a972c-1757-475b-b312-226c04757aac"],
+Cell[18556, 434, 234, 4, 37, "CodeText",ExpressionUUID->"4c91261c-2e76-4541-ba46-5a59d95fe1cd"],
+Cell[18793, 440, 474, 13, 28, "Input",ExpressionUUID->"3134464d-eb25-43f3-955a-63509a89390e"],
+Cell[19270, 455, 280, 6, 34, "Text",ExpressionUUID->"1dd2fef3-e7fc-4ead-9907-89e971b3bfe2"],
+Cell[19553, 463, 224, 3, 37, "CodeText",ExpressionUUID->"439b8ee1-72d3-4a4e-af2b-e8d903390393"],
+Cell[19780, 468, 1436, 33, 33, "Input",ExpressionUUID->"d248fac3-cb07-4eaa-8f9c-7b0875e3a291"],
+Cell[21219, 503, 204, 3, 37, "CodeText",ExpressionUUID->"755bcc9a-2db1-4383-b2d8-f23a7d82e550"],
+Cell[21426, 508, 511, 14, 28, "Input",ExpressionUUID->"6a15408e-ea57-4cd3-91a1-4d0bd13ee3fa"],
+Cell[21940, 524, 316, 7, 34, "Text",ExpressionUUID->"2b20ef73-c6b0-4b93-8cb0-0e00129dcdb8"],
+Cell[22259, 533, 298, 4, 37, "CodeText",ExpressionUUID->"df586b76-8fc9-4bec-8a00-fbab26f59618"],
+Cell[22560, 539, 1384, 29, 33, "Input",ExpressionUUID->"027adf89-9ba6-4fc2-a2f0-0d3acb54703c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23981, 573, 172, 3, 53, "Subsection",ExpressionUUID->"d92e4cf4-f332-4cc5-80ba-d1280ffcd405"],
+Cell[24156, 578, 907, 14, 78, "Text",ExpressionUUID->"3d7464b0-bfff-484a-a4a6-f5d839002351"],
+Cell[25066, 594, 315, 7, 37, "CodeText",ExpressionUUID->"66744f38-c059-4a03-a37a-6bc8f5833b63"],
+Cell[25384, 603, 691, 19, 28, "Input",ExpressionUUID->"96cc1ee1-3eb3-4c39-b0d3-3bb119600fe6"],
+Cell[26078, 624, 266, 6, 34, "Text",ExpressionUUID->"edca701e-4e1f-42dd-874d-23feb0a12f46"],
+Cell[26347, 632, 299, 7, 37, "CodeText",ExpressionUUID->"c8933d0d-15ac-407b-80cf-a22cdddfc79a"],
+Cell[26649, 641, 721, 18, 28, "Input",ExpressionUUID->"c599108d-90f5-4728-b0d5-d4d4c38a59c1"],
+Cell[27373, 661, 255, 6, 37, "CodeText",ExpressionUUID->"70d2a6f6-87fc-4014-8e3e-4a7c50019ad8"],
+Cell[27631, 669, 641, 17, 28, "Input",ExpressionUUID->"83e0e479-b228-4988-8c55-e940f758baed"],
+Cell[28275, 688, 361, 6, 34, "Text",ExpressionUUID->"2c5392e8-e190-4eee-be4c-01ef873f7be6"],
+Cell[28639, 696, 247, 6, 28, "Input",ExpressionUUID->"cd8ea913-7bd7-49bc-bfa8-c5d9f92fa45d"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[28935, 708, 319, 5, 53, "Section",ExpressionUUID->"b88603aa-5ed1-46eb-ab3c-68906a8284db"],
+Cell[CellGroupData[{
+Cell[29279, 717, 236, 4, 53, "Subsection",ExpressionUUID->"578d943a-646a-488b-9d22-6cde84bb00d0"],
+Cell[29518, 723, 662, 11, 56, "Text",ExpressionUUID->"0b7c68eb-375a-447c-a2fa-28b745cd8385"],
+Cell[30183, 736, 257, 4, 37, "CodeText",ExpressionUUID->"1d3f8cb7-9c47-4c9b-96ba-8562398f6ae2"],
+Cell[CellGroupData[{
+Cell[30465, 744, 512, 13, 28, "Input",ExpressionUUID->"7b2e447b-18b7-4a62-9340-73d35946e63d"],
+Cell[30980, 759, 10734, 213, 90, "Output",ExpressionUUID->"8c37ea6e-fbc2-4a4e-b249-8cf002f91711"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3876, 98, 329, 5, 67, "Section",ExpressionUUID->"51585a3d-a81a-42bf-a6a1-cc0bfc4966b0"],
+Cell[41763, 978, 186, 3, 53, "Subsection",ExpressionUUID->"8ec032a8-8175-4664-8341-30c71a3d6c04"],
+Cell[41952, 983, 415, 8, 34, "Text",ExpressionUUID->"aa5a2ac2-d72d-4661-bc8a-f0b21b2e9f49"],
+Cell[42370, 993, 183, 3, 37, "CodeText",ExpressionUUID->"43bc617c-47f9-45f6-9d2f-543ab2059c81"],
+Cell[42556, 998, 413, 10, 28, "Input",ExpressionUUID->"cebd622b-bd64-4be1-95d5-e3949227ec15"],
+Cell[42972, 1010, 267, 6, 34, "Text",ExpressionUUID->"5820510a-b0c8-49ca-875f-4a11b87c829e"],
+Cell[43242, 1018, 189, 3, 37, "CodeText",ExpressionUUID->"bcd616a2-9682-483a-96d6-c3d3b7a427c0"],
 Cell[CellGroupData[{
-Cell[4230, 107, 166, 3, 53, "Subsection",ExpressionUUID->"f56526b3-ed21-4af2-b57b-91a6e3687783"],
-Cell[4399, 112, 1004, 16, 78, "Text",ExpressionUUID->"2305810b-75a8-446b-8eb9-84ed3d7b68b8"]
+Cell[43456, 1025, 2332, 48, 33, "Input",ExpressionUUID->"9407c0ec-135c-423d-9a5e-9a57faf38640"],
+Cell[45791, 1075, 511, 11, 35, "Output",ExpressionUUID->"9058b981-bd7e-4b90-a8fc-eb9da169c662"]
+}, Open  ]],
+Cell[46317, 1089, 680, 14, 34, "Text",ExpressionUUID->"99731626-4ecd-46bf-b7f3-62d11e69494b"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5440, 133, 304, 4, 53, "Subsection",ExpressionUUID->"cbd4c6ef-9482-404d-8a4f-3aecc0bb8d56"],
-Cell[5747, 139, 940, 15, 56, "Text",ExpressionUUID->"a1945163-b629-4ace-bee6-984544904f7f"],
-Cell[6690, 156, 377, 7, 37, "CodeText",ExpressionUUID->"aef9c1b2-894c-4a52-bbd4-483b71a0548d"],
-Cell[7070, 165, 404, 10, 28, "Input",ExpressionUUID->"70243ecb-fbcb-4e6f-a60b-71537e86497a"],
-Cell[7477, 177, 421, 8, 34, "Text",ExpressionUUID->"ba7fbac6-cdf2-4b36-878f-87a862da24ee"],
-Cell[7901, 187, 318, 6, 37, "CodeText",ExpressionUUID->"b1e4fb45-c65e-49da-8373-1bb846b48ff1"],
-Cell[8222, 195, 839, 18, 28, "Input",ExpressionUUID->"d58abc98-82ae-4da4-9dc9-f80dac1e7337"],
-Cell[9064, 215, 428, 8, 34, "Text",ExpressionUUID->"443bfacf-78c2-4c5e-b63f-629f8560af7f"],
-Cell[9495, 225, 225, 5, 37, "CodeText",ExpressionUUID->"7c33abb0-6c16-4cc7-bc34-99586a9702b7"],
-Cell[9723, 232, 729, 13, 28, "Input",ExpressionUUID->"e0dfd166-f8e2-4f59-b0b6-598121f4fa5d"],
-Cell[10455, 247, 902, 16, 28, "Input",ExpressionUUID->"84e54e6d-a6d9-43f0-ba2c-78c3a160afcd"],
-Cell[11360, 265, 382, 7, 34, "Text",ExpressionUUID->"b2c1d0d6-cade-48f0-bccb-059f228bd6b4"],
-Cell[11745, 274, 244, 6, 37, "CodeText",ExpressionUUID->"01bcb4f2-5e5f-4161-ba69-8c9f9b784106"]
+Cell[47046, 1109, 159, 3, 67, "Section",ExpressionUUID->"0faf6c35-f109-4cb8-becc-b97fb70eb8c1"],
+Cell[47208, 1114, 1293, 23, 100, "Text",ExpressionUUID->"8632fb66-dc41-4e5b-a7d5-d0db87521915"],
+Cell[CellGroupData[{
+Cell[48526, 1141, 159, 3, 53, "Subsection",ExpressionUUID->"4a522cfe-d28b-4920-850e-996525f0aada"],
+Cell[48688, 1146, 795, 13, 78, "Text",ExpressionUUID->"b8863695-95ba-42d2-824c-3705ccbd5ee5"]
 }, Open  ]],
-Cell[12004, 283, 179, 3, 53, "Subsection",ExpressionUUID->"f7ed1b79-3397-49cc-90b7-37e86874efff"]
+Cell[CellGroupData[{
+Cell[49520, 1164, 163, 3, 53, "Subsection",ExpressionUUID->"b1b75b6f-116f-47cf-a7e0-2cdcfa53c6a5"],
+Cell[49686, 1169, 398, 8, 56, "Text",ExpressionUUID->"d2b67380-70f1-4750-8819-7227598cd134"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
